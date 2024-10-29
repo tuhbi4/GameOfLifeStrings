@@ -85,7 +85,7 @@ namespace GameOfLifeStrings
 
             var neighbours = new StringBuilder();
 
-            var (startRowIndex, endRowIndex, startColumnIndex, endColumnIndex) = StartRowIndex(rowsCount, columnsCount, targetRowIndex, targetColumnIndex);
+            var (startRowIndex, endRowIndex, startColumnIndex, endColumnIndex) = GetMinMaxIndexes(rowsCount, columnsCount, targetRowIndex, targetColumnIndex);
 
             for (var rowIndex = startRowIndex; rowIndex <= endRowIndex; rowIndex++)
             {
@@ -101,7 +101,7 @@ namespace GameOfLifeStrings
             return neighbours.ToString();
         }
 
-        private static (int startRowIndex, int endRowIndex, int startColumnIndex, int endColumnIndex) StartRowIndex(
+        private static (int startRowIndex, int endRowIndex, int startColumnIndex, int endColumnIndex) GetMinMaxIndexes(
              int rowsCount, int columnsCount, int targetRowIndex, int targetColumnIndex)
         {
             var startRowIndex = Math.Max(0, targetRowIndex - 1);
